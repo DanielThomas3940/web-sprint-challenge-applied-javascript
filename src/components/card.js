@@ -32,7 +32,7 @@ const Card = (article) => {
   imgContainer.classList.add("img-conatiner");
 
   headline.textContent = article.headline;
-  authorTag.textContent = 'By ${article.authorName}';
+  authorTag.textContent = article.authorName;
 
   img.src = article.authorPhoto;
 
@@ -78,7 +78,7 @@ const cardAppender = (selector) => {
 
     ];
   console.log(articlesArray);
-  articlesArray.forEach((article) =>{
+  articlesArray.forEach((article) => {
     cardsContainer.append(Card(article));
   });
     
