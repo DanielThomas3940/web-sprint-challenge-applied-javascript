@@ -29,10 +29,11 @@ const Card = (article) => {
   card.classList.add("card");
   headline.classList.add("headline");
   author.classList.add("author");
-  imgContainer.classList.add("img-conatiner");
+  imgContainer.classList.add("img-container");
 
   headline.textContent = article.headline;
   authorTag.textContent = article.authorName;
+  
 
   img.src = article.authorPhoto;
 
