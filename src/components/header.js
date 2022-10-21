@@ -21,9 +21,9 @@ const Header = (title, date, temp) => {
   dateSpan.classList.add('date');
   tempSpan.classList.add('temp');
 
-  dateSpan.textContent = '${date}';
-  headerTitle.textContent = '${title}';
-  tempSpan.textContent = '${temp}';
+  dateSpan.textContent = date;
+  headerTitle.textContent = title;
+  tempSpan.textContent = temp;
 
   header.appendChild(dateSpan);
   header.appendChild(headerTitle);

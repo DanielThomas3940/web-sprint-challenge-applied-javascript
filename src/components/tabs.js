@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -13,6 +15,18 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+  const topicsDiv= document.createElement('div');
+  topicsDiv.classList.add('topics');
+
+  topics.forEach(topic => {
+    const topicTag = document.createElement('div');
+    topicTag.classList.add('tab');
+    topicTag.textContent = topics;
+    topicsDiv.appendChild(topicTag);
+  })
+
+  return topicsDiv;
 }
 
 const tabsAppender = (selector) => {
@@ -25,4 +39,13 @@ const tabsAppender = (selector) => {
   //
 }
 
+axios.get('http://localhost:5001/api/topics')
+.then(response => {
+  console.log(response);
+  const newTabs = Tabs(response.data.topics);
+  document.querySelector(selector).appendChild(newTabs);
+})
+.catch(error => {
+  console.log(error);
+})
 export { Tabs, tabsAppender }

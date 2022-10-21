@@ -21,31 +21,33 @@ const Card = (article) => {
 
   const card = document.createElement("div");
   const headline = document.createElement("div");
-  const author= document.createElement("div");
-  const imgContainer = document.createElement("img");
-  const img = document.createElement("div");
-  const authorName= document.createElement("span");
+  const author = document.createElement("div");
+  const imgContainer = document.createElement("div");
+  const img = document.createElement("img");
+  const authorTag= document.createElement("span");
 
   card.classList.add("card");
   headline.classList.add("headline");
   author.classList.add("author");
   imgContainer.classList.add("img-conatiner");
-  img.setAttribute("src", article.authorPhoto);
-  headline.textContent = article.headline;
-  author.textContent = article.authorName;
 
-  card.addEventListener("click", () => {
-    console.log(headline);
-  });
+  headline.textContent = article.headline;
+  authorTag.textContent = 'By ${article.authorName}';
+
+  img.src = article.authorPhoto;
 
   card.appendChild(headline);
   card.appendChild(author);
   author.appendChild(imgContainer);
-  author.appendChild(authorName);
   imgContainer.appendChild(img);
+  author.appendChild(authorTag);
 
+  card.addEventListener('click', () => {
+    console.log(headline.textContent);
+  })
+  console.log(card);
   return card;
-};
+}
 
 const cardAppender = (selector) => {
   // TASK 6
@@ -83,8 +85,8 @@ const cardAppender = (selector) => {
   })
   .catch((err) => {
     console.log(err);
-  });
-};
- cardAppender();
+  })
+}
+ 
 
 export { Card, cardAppender }
